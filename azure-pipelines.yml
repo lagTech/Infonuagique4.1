@@ -118,8 +118,10 @@ steps:
           $appId = ($appOutput | ConvertFrom-Json).appId
 
           # Create a new client secret
-          $clientSecretOutput = az ad app credential reset --id $appId --end-date (Get-Date).AddYears(2).ToString("yyyy-MM-dd") --query password -o tsv
-          $clientSecret = $clientSecretOutput.Trim()
+          $GeneratedPassword = [guid]::NewGuid().ToString()
+          az ad app credential reset --id $appId --password $GeneratedPassword --end-date (Get-Date).AddYears(2).ToString("yyyy-MM-dd")
+          $clientSecret = $GeneratedPassword
+
 
           # Grant Microsoft Graph API permissions
           Write-Host "Adding API permissions..."
