@@ -39,7 +39,7 @@ variables:
 - name: BlobName
   value: '$(RG)blobstore'
 - name: SBusName
-  value: '$(RG)Sb'
+  value: '$(RG)Sbu'
 - name: EventHubName
   value: '$(RG)EventHub'
 - name: CosmosName
