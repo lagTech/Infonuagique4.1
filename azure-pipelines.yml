@@ -4,9 +4,9 @@
 # https://aka.ms/yaml
 
 # trigger:
-# - master
+# - main
 
-pool: "default"
+pool: new_agent_pool
 
 # Add Owner roles to pipeline service principale !!!!
 # Add Global Administrator in AD to pipeline service principale !!!!
@@ -23,7 +23,7 @@ variables:
 
   # Resource group ainsi que l'acronyme utiliser pour créer le nom des resources
 - name: RG
-  value: 'guro'
+  value: 'ulr'
  
   # Resources
 - name: RG_Location
@@ -75,7 +75,7 @@ variables:
   value: 'Docker Registry Dynamic'
 
 - name: AzureSubscription
-  value: 'Azure subscription 1(970fcef5-9c23-4f7d-a11b-5a96d104f066)'
+  value: 'Subscription 1(2)(90754b4e-6ff3-4abe-ab3c-17af43493fc1)'
 - name: AzureDevOpsPAT #https://learn.microsoft.com/en-us/azure/devops/cli/log-in-via-pat?view=azure-devops&tabs=windows
   value: 'r9UMg3Jrr1NwuFXXZx7k8VMirDz2ezTKJVoocbBUS7yiurpvPen2JQQJ99BDACAAAAAAAAAAAAASAZDOrV1D'
 
