@@ -15,7 +15,7 @@ pool: new_agent_pool
 
 variables:
 - name: AppRegistrationName
-  value: 'Mvc-dev3'
+  value: 'MVC_Dynamic'
 
 - name: ApplicationId
 - name: TenantId
