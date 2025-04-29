@@ -6,7 +6,8 @@
 trigger:
 - main
 
-pool: new_agent_pool
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
 - name: DockerRegistryServiceConnectionName
