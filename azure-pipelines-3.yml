@@ -4,17 +4,17 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- main
 
-pool: "default"
+pool: new_agent_pool
 
 variables:
   # Resource group ainsi que l'acronyme utiliser pour créer le nom des resources
 - name: RG
-  value: 'guro'
+  value: 'ulri'
 
 - name: AzureSubscription
-  value: 'Azure subscription 1(970fcef5-9c23-4f7d-a11b-5a96d104f066)'
+  value: 'info4'
 
   # Resources
 - name: RG_Location
@@ -35,7 +35,7 @@ variables:
   value: 'DeployKube'
 
 - name: AppConfigEndpoint # Ont pourrait apporter la variable du premier pipeline ...
-  value: 'https://guroappconfiguration.azconfig.io'  
+  value: 'https://Lacappconfiguration.azconfig.io'  
 
 steps:
   - task: AzureCLI@2
@@ -92,8 +92,8 @@ steps:
     displayName: 'Reading Secrets'
     inputs:
       azureSubscription: $(AzureSubscription)
-      KeyVaultName: 'GuroKeyVault'
-      SecretsFilter: 'ClientID,TenantID,ClientSecret'
+      KeyVaultName: 'ulriKeyVault'
+      SecretsFilter: 'ClientID,TenantID,ClientSecret,ConnectionStringSB,ConnectionStringEventHub,ConnectionStringBlob'
       RunAsPreJob: false
 
   - task: AzureCLI@2
@@ -110,7 +110,7 @@ steps:
         az aks get-credentials --resource-group $(RG) --name $(clusterName) --overwrite-existing
 
         # Create Kubernetes secrets
-        kubectl create secret generic my-secret --from-literal=AppConfigurationEndpoints=$(AppConfigEndpoint) --from-literal=AZURE_CLIENT_ID=$(ClientID) --from-literal=AZURE_TENANT_ID=$(TenantID) --from-literal=AZURE_CLIENT_SECRET=$(ClientSecret)
+        kubectl create secret generic my-secret --from-literal=AppConfigurationEndpoints=$(AppConfigEndpoint) --from-literal=AZURE_CLIENT_ID=$(ClientID) --from-literal=AZURE_TENANT_ID=$(TenantID) --from-literal=AZURE_CLIENT_SECRET=$(ClientSecret)  --from-literal=ConnectionKedaStringSB=$(ConnectionStringSB) --from-literal=ConnectionKedaStringEventHub=$(ConnectionStringEventHub) --from-literal=ConnectionKedaStringBlob=$(ConnectionStringBlob)
         echo "Secrets created successfully!"
 
   # - task: AzureCLI@2
