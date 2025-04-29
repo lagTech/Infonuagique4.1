@@ -11,7 +11,7 @@ pool: new_agent_pool
 variables:
   # Resource group ainsi que l'acronyme utiliser pour créer le nom des resources
 - name: RG
-  value: 'ulri'
+  value: 'ulr'
 
 - name: AzureSubscription
   value: 'info4'
