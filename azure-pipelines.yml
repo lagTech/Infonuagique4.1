@@ -14,8 +14,10 @@ pool: new_agent_pool
 # Add AcrPull to pipeline service principale !!!!
 
 variables:
+- group: New variable group 29-Apr
 - name: AppRegistrationName
   value: 'MVC_Dynamic'
+
 
 - name: ApplicationId
 - name: TenantId
@@ -77,7 +79,7 @@ variables:
 - name: AzureSubscription
   value: 'info4'
 - name: AzureDevOpsPAT #https://learn.microsoft.com/en-us/azure/devops/cli/log-in-via-pat?view=azure-devops&tabs=windows
-  value: 'r9UMg3Jrr1NwuFXXZx7k8VMirDz2ezTKJVoocbBUS7yiurpvPen2JQQJ99BDACAAAAAAAAAAAAASAZDOrV1D'
+  value:  $(AzureDevOpsPAT)
 
 - name: ServiceConnectionExists
   value: false
