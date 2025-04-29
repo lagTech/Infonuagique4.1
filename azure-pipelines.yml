@@ -78,8 +78,7 @@ variables:
 
 - name: AzureSubscription
   value: 'info4'
-- name: AzureDevOpsPAT #https://learn.microsoft.com/en-us/azure/devops/cli/log-in-via-pat?view=azure-devops&tabs=windows
-  value:  $(AzureDevOpsPAT)
+
 
 - name: ServiceConnectionExists
   value: false
